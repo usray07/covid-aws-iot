@@ -1,0 +1,58 @@
+[{"id":"bed0f601.738b98","type":"tab","label":"Project2
+MQTT","disabled":false,"info":""},{"id":"4decea1c.b3e374","type":"mqtt out","z":"bed0f601.738b98","name":"","topic":"","qos":"","retain":"","broker":"3ec70
+37.918dafc","x":1030,"y":340,"wires":[]},{"id":"45b3fdd2.ff4974","type":"inject","z
+":"bed0f601.738b98","name":"","topic":"","payload":"","payloadType":"date","repe
+at":"","crontab":"","once":false,"onceDelay":0.1,"x":160,"y":100,"wires":[["def552f4. 988f5"]]},{"id":"def552f4.988f5","type":"file
+in","z":"bed0f601.738b98","name":"File In","filename":"C:\\Users\\Anshuman\\Desktop\\Summer Course 2020\\New.json","format":"utf8","chunk":false,"sendError":false,"encoding":"none"," x":150,"y":160,"wires":[["c5f698bd.9afd78"]]},{"id":"c5f698bd.9afd78","type":"jso
+n","z":"bed0f601.738b98","name":"","property":"payload","action":"","pretty":false,
+"x":150,"y":220,"wires":[["717612d5.7a343c"]]},{"id":"717612d5.7a343c","type":"
+split","z":"bed0f601.738b98","name":"","splt":",","spltType":"str","arraySplt":1,"arra
+ySpltType":"len","stream":false,"addname":"key","x":150,"y":280,"wires":[["f5a324
+42.d036c8"]]},{"id":"f5a32442.d036c8","type":"function","z":"bed0f601.738b98","
+ 
+name":"Topic assign","func":"msg.topic = msg.key;\nreturn msg;","outputs":1,"noerr":0,"x":150,"y":340,"wires":[["b945c1d2.e9b54","a1ea99da.
+76c988","9ad9fd05.5278e","fc87c760.be5bf8"]]},{"id":"b945c1d2.e9b54","type":
+"function","z":"bed0f601.738b98","name":"Adi","func":"if (msg.key ==
+\"Sheet1\")\n{\n	return msg;\n}\n","outputs":1,"noerr":0,"x":310,"y":240,"wires":[["e57fd3a0.1158e"]]},{"id
+":"a1ea99da.76c988","type":"function","z":"bed0f601.738b98","name":"Mohit","fu nc":"if (msg.key == \"Mohit\")\n{\n	return msg;\n}\n","outputs":1,"noerr":0,"x":310,"y":300,"wires":[["a1adf171.0a24a"]]},{"id
+":"9ad9fd05.5278e","type":"function","z":"bed0f601.738b98","name":"Rahul","func ":"if (msg.key == \"Rahul\")\n{\n	return msg;\n}\n","outputs":1,"noerr":0,"x":310,"y":380,"wires":[["4b749020.01acd"]]},{"id
+":"fc87c760.be5bf8","type":"function","z":"bed0f601.738b98","name":"Sumit","func ":"if (msg.key == \"Sumit\")\n{\n	return msg;\n}\n","outputs":1,"noerr":0,"x":310,"y":440,"wires":[["28297b86.b8b5a4"]]},{"
+id":"e57fd3a0.1158e","type":"split","z":"bed0f601.738b98","name":"","splt":",","spl
+tType":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"","x":430,
+"y":240,"wires":[["9fe445f9.d35b38"]]},{"id":"a1adf171.0a24a","type":"split","z":"
+bed0f601.738b98","name":"","splt":",","spltType":"str","arraySplt":1,"arraySpltType
+":"len","stream":false,"addname":"","x":430,"y":300,"wires":[["a407f227.f1274"]]},{"
+id":"4b749020.01acd","type":"split","z":"bed0f601.738b98","name":"","splt":",","sp
+ltType":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"","x":43
+0,"y":380,"wires":[["f2641d93.1d0b"]]},{"id":"28297b86.b8b5a4","type":"split","z":
+"bed0f601.738b98","name":"","splt":",","spltType":"str","arraySplt":1,"arraySpltTyp
+e":"len","stream":false,"addname":"","x":430,"y":440,"wires":[["e838897c.ce62f8"]]},
+{"id":"9fe445f9.d35b38","type":"split","z":"bed0f601.738b98","name":"","splt":",","
+spltType":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"","x":5
+50,"y":240,"wires":[["c8fecc5e.aab35"]]},{"id":"a407f227.f1274","type":"split","z":"
+bed0f601.738b98","name":"","splt":",","spltType":"str","arraySplt":1,"arraySpltType
+":"len","stream":false,"addname":"","x":550,"y":300,"wires":[["97e75370.93f8"]]},{"i
+d":"f2641d93.1d0b","type":"split","z":"bed0f601.738b98","name":"","splt":",","spltT
+ype":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"","x":550,"
+y":380,"wires":[["187376d5.8e7d99"]]},{"id":"e838897c.ce62f8","type":"split","z":"
+bed0f601.738b98","name":"","splt":",","spltType":"str","arraySplt":1,"arraySpltType
+":"len","stream":false,"addname":"","x":550,"y":440,"wires":[["526d41bc.9fda6"]]},{ "id":"273a0c7b.a5f0f4","type":"function","z":"bed0f601.738b98","name":"Adi Mqtt","func":"msg.topic = \"project/temp/\"+msg.key;\nmsg.payload = Number(msg.payload);\nreturn msg;","outputs":1,"noerr":0,"x":860,"y":240,"wires":[["4decea1c.b3e374"]]},{"id":"b5 7258f5.2c0298","type":"function","z":"bed0f601.738b98","name":"Mohit Mqtt","func":"msg.topic = \"project/temp/\"+msg.key;\nmsg.payload = Number(msg.payload);\nreturn msg;","outputs":1,"noerr":0,"x":870,"y":300,"wires":[["4decea1c.b3e374"]]},{"id":"ccf 1d8bd.a69898","type":"function","z":"bed0f601.738b98","name":"Rahul Mqtt","func":"msg.topic = \"project/temp/\"+msg.key;\nmsg.payload =
+ 
+Number(msg.payload);\nreturn msg;","outputs":1,"noerr":0,"x":870,"y":380,"wires":[["4decea1c.b3e374"]]},{"id":"61 e21631.6172f8","type":"function","z":"bed0f601.738b98","name":"Sumit Mqtt","func":"msg.topic = \"project/temp/\"+msg.key;\nmsg.payload = Number(msg.payload);\nreturn msg;","outputs":1,"noerr":0,"x":870,"y":440,"wires":[["4decea1c.b3e374"]]},{"id":"c8 fecc5e.aab35","type":"delay","z":"bed0f601.738b98","name":"Delay 4
+hours","pauseType":"rate","timeout":"5","timeoutUnits":"seconds","rate":"1","nbRateU
+nits":"4","rateUnits":"hour","randomFirst":"1","randomLast":"5","randomUnits":"second
+s","drop":false,"x":700,"y":240,"wires":[["273a0c7b.a5f0f4"]]},{"id":"97e75370.93f 8","type":"delay","z":"bed0f601.738b98","name":"Delay 4
+hours","pauseType":"rate","timeout":"5","timeoutUnits":"seconds","rate":"1","nbRateU
+nits":"4","rateUnits":"hour","randomFirst":"1","randomLast":"5","randomUnits":"second
+s","drop":false,"x":700,"y":300,"wires":[["b57258f5.2c0298"]]},{"id":"187376d5.8e
+7d99","type":"delay","z":"bed0f601.738b98","name":"Delay 4
+hours","pauseType":"rate","timeout":"5","timeoutUnits":"seconds","rate":"1","nbRateU
+nits":"4","rateUnits":"hour","randomFirst":"1","randomLast":"5","randomUnits":"second
+s","drop":false,"x":700,"y":380,"wires":[["ccf1d8bd.a69898"]]},{"id":"526d41bc.9fd a6","type":"delay","z":"bed0f601.738b98","name":"Delay 4
+hours","pauseType":"rate","timeout":"5","timeoutUnits":"seconds","rate":"1","nbRateU
+nits":"4","rateUnits":"hour","randomFirst":"1","randomLast":"5","randomUnits":"second
+s","drop":false,"x":700,"y":440,"wires":[["61e21631.6172f8"]]},{"id":"3ec7037.918
+dafc","type":"mqtt-broker","z":"","name":"Amazon AWS (GALI)","broker":"a1dufe2albfsbg-ats.iot.us-east- 2.amazonaws.com","port":"8883","tls":"f2cdea15.58fc58","clientid":"","usetls":true,"c
+ompatmode":true,"keepalive":"60","cleansession":true,"birthTopic":"","birthQos":"0","
+birthPayload":"","closeTopic":"","closeQos":"0","closePayload":"","willTopic":"","willQ
+os":"0","willPayload":""},{"id":"f2cdea15.58fc58","type":"tls- config","z":"","name":"Amazon AWS","cert":"","key":"","ca":"","certname":"fcce3c98d4- certificate.pem.crt","keyname":"fcce3c98d4- private.pem.key","caname":"AmazonRootCA1.pem.txt","servername":"","verifyserver cert":true}]
