@@ -1,0 +1,84 @@
+[{"id":"2bfe4fdb.e35b8","type":"tab","label":"Project2 Charts","disabled":true,"info":""},{"id":"293df21d.188bbe","type":"ui_chart","z":"2bf
+e4fdb.e35b8","name":"","group":"f1e719f4.28d568","order":1,"width":25,"height": 4,"label":"Line Chart","chartType":"line","legend":"true","xformat":"auto","interpolate":"step","nodat a":"No Data","dot":true,"ymin":"","ymax":"","removeOlder":"80","removeOlderPoints":"","re moveOlderUnit":"1","cutout":0,"useOneColor":true,"useUTC":false,"colors":["#d4ff00", "#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#
+c5b0d5"],"useOldStyle":false,"outputs":1,"x":850,"y":120,"wires":[[]]},{"id":"f756d14
+1.	a6e69","type":"function","z":"2bfe4fdb.e35b8","name":"Clear","func":"msg.payloa     d = [];\nreturn msg;","outputs":1,"noerr":0,"x":610,"y":480,"wires":[["293df21d.188bbe","6dafb58
+d.7bb67c"]]},{"id":"3014e146.253d8e","type":"function","z":"2bfe4fdb.e35b8","na
+me":"Adi","func":"var i = [];\nvar x = [];\nvar y = [];\nvar z = [];\nvar lab = [];\nvar j;\nvar a;\n\nfor(a = 0; a < 20; a++)\n{\n	for(j = 0; j < 4; j++)\n
+{\n	if(j === 0)\n	lab.push(msg.payload.Sheet1[a].Date +
+\"8AM\");\n	if(j == 1)\n	lab.push(msg.payload.Sheet1[a].Date +
+\"11AM\");\n	if(j == 2)\n	lab.push(msg.payload.Sheet1[a].Date +
+\"1PM\");\n	if(j == 3)\n	lab.push(msg.payload.Sheet1[a].Date +
+\"6PM\");\n	}\n} \nfor(a = 0; a < 20; a++)\n{\n i.push(msg.payload.Sheet1[a][\"8AM\"]);\n i.push(msg.payload.Sheet1[a][\"11AM\"]);\n i.push(msg.payload.Sheet1[a][\"1PM\"]);\n i.push(msg.payload.Sheet1[a][\"6PM\"]);\n	\n}	\nvar m={};\nm.labels = lab;\nm.series = ['Series Adi'];\nm.data = [i];\n\nreturn
+{payload:[m]};\n\n/*msg.payload = [];\nreturn msg;*/ \n//To flush the chart or clean the chart","outputs":1,"noerr":0,"x":570,"y":60,"wires":[["293df21d.188bbe"]]},{"id":"fc9
+a1277.b3e9a","type":"ui_button","z":"2bfe4fdb.e35b8","name":"","group":"7f5939
+fa.12e138","order":5,"width":5,"height":1,"passthru":false,"label":"Clear","tooltip":"",
+"color":"","bgcolor":"","icon":"","payload":"[]","payloadType":"str","topic":"","x":130," y":480,"wires":[["f756d141.a6e69"]]},{"id":"6c852d40.aaeae4","type":"ui_button",
+"z":"2bfe4fdb.e35b8","name":"","group":"7f5939fa.12e138","order":1,"width":5,"h
+eight":1,"passthru":false,"label":"Adi","tooltip":"","color":"","bgcolor":"","icon":"","payl
+oad":"","payloadType":"str","topic":"","x":130,"y":80,"wires":[["58416391.63e7fc"]]}
+,{"id":"58416391.63e7fc","type":"file in","z":"2bfe4fdb.e35b8","name":"File in","filename":"C:\\Users\\Anshuman\\Desktop\\Summer Course 2020\\New.json","format":"utf8","chunk":false,"sendError":false,"encoding":"none"," x":250,"y":80,"wires":[["9122bd4c.3cb11"]]},{"id":"9122bd4c.3cb11","type":"json","
+z":"2bfe4fdb.e35b8","name":"","property":"payload","action":"","pretty":false,"x":3
+70,"y":80,"wires":[["3014e146.253d8e","210488a9.7b4158"]]},{"id":"484dc303.1
+ 
+4a4cc","type":"function","z":"2bfe4fdb.e35b8","name":"Mohit","func":"var i = [];\nvar x = [];\nvar y = [];\nvar z = [];\nvar lab = [];\nvar j;\nvar a;\n\nfor(a = 0; a < 20; a++)\n{\n	for(j = 0; j < 4; j++)\n	{\n					if(j === 0)\n lab.push(msg.payload.Sheet1[a].Date + \"8AM\");\n				if(j == 1)\n lab.push(msg.payload.Sheet1[a].Date + \"11AM\");\n				if(j == 2)\n lab.push(msg.payload.Sheet1[a].Date + \"1PM\");\n			if(j == 3)\n lab.push(msg.payload.Sheet1[a].Date + \"6PM\");\n		}\n} \nfor(a = 0; a < 20; a++)\n{\n\n	x.push(msg.payload.Mohit[a][\"8AM\"]);\n x.push(msg.payload.Mohit[a][\"11AM\"]);\n x.push(msg.payload.Mohit[a][\"1PM\"]);\n x.push(msg.payload.Mohit[a][\"6PM\"]);\n\n}	\nvar m={};\nm.labels = lab;\nm.series = ['Series Mohit'];\nm.data = [x];\n\nreturn
+{payload:[m]};\n\n/*msg.payload = [];\nreturn msg;*/ \n//To flush the chart or clean the chart","outputs":1,"noerr":0,"x":570,"y":100,"wires":[["293df21d.188bbe"]]},{"id":"4
+fd9812e.1d4e","type":"ui_button","z":"2bfe4fdb.e35b8","name":"","group":"7f593
+9fa.12e138","order":2,"width":5,"height":1,"passthru":false,"label":"Mohit","tooltip":" ","color":"","bgcolor":"","icon":"","payload":"","payloadType":"str","topic":"","x":130," y":180,"wires":[["7437a6e7.d39678"]]},{"id":"7437a6e7.d39678","type":"file
+in","z":"2bfe4fdb.e35b8","name":"File in","filename":"C:\\Users\\Anshuman\\Desktop\\Summer Course 2020\\New.json","format":"utf8","chunk":false,"sendError":false,"encoding":"none"," x":250,"y":180,"wires":[["2aa63223.6569ce"]]},{"id":"2aa63223.6569ce","type":"js
+on","z":"2bfe4fdb.e35b8","name":"","property":"payload","action":"","pretty":false,"
+x":370,"y":180,"wires":[["484dc303.14a4cc","631ad2b8.6dffdc"]]},{"id":"c29e333
+8.5c734","type":"function","z":"2bfe4fdb.e35b8","name":"Rahul","func":"var i = [];\nvar x = [];\nvar y = [];\nvar z = [];\nvar lab = [];\nvar j;\nvar a;\n\nfor(a = 0; a < 20; a++)\n{\n	for(j = 0; j < 4; j++)\n	{\n					if(j === 0)\n lab.push(msg.payload.Sheet1[a].Date + \"8AM\");\n				if(j == 1)\n lab.push(msg.payload.Sheet1[a].Date + \"11AM\");\n				if(j == 2)\n lab.push(msg.payload.Sheet1[a].Date + \"1PM\");\n			if(j == 3)\n lab.push(msg.payload.Sheet1[a].Date + \"6PM\");\n		}\n} \nfor(a = 0; a < 20; a++)\n{\n\n	y.push(msg.payload.Rahul[a][\"8AM\"]);\n y.push(msg.payload.Rahul[a][\"11AM\"]);\n y.push(msg.payload.Rahul[a][\"1PM\"]);\n y.push(msg.payload.Rahul[a][\"6PM\"]);\n}	\nvar m={};\nm.labels =
+lab;\nm.series = ['Series Rahul'];\nm.data = [y];\n\nreturn
+{payload:[m]};\n\n/*msg.payload = [];\nreturn msg;*/ \n//To flush the chart or clean the chart","outputs":1,"noerr":0,"x":570,"y":140,"wires":[["293df21d.188bbe"]]},{"id":"d
+c793e68.a61d7","type":"ui_button","z":"2bfe4fdb.e35b8","name":"","group":"7f59
+39fa.12e138","order":3,"width":5,"height":1,"passthru":false,"label":"Rahul","tooltip": "","color":"","bgcolor":"","icon":"","payload":"","payloadType":"str","topic":"","x":130, "y":280,"wires":[["82a02339.0ba23"]]},{"id":"82a02339.0ba23","type":"file in","z":"2bfe4fdb.e35b8","name":"File
+ 
+in","filename":"C:\\Users\\Anshuman\\Desktop\\Summer Course 2020\\New.json","format":"utf8","chunk":false,"sendError":false,"encoding":"none"," x":250,"y":280,"wires":[["ddfb5b06.66d6d8"]]},{"id":"ddfb5b06.66d6d8","type":"js
+on","z":"2bfe4fdb.e35b8","name":"","property":"payload","action":"","pretty":false,"
+x":370,"y":280,"wires":[["c29e3338.5c734","f347a17e.b4381"]]},{"id":"a5b89df6.
+21dc","type":"function","z":"2bfe4fdb.e35b8","name":"Sumit","func":"var i = [];\nvar x = [];\nvar y = [];\nvar z = [];\nvar lab = [];\nvar j;\nvar a;\n\nfor(a = 0; a < 20; a++)\n{\n		for(j = 0; j < 4; j++)\n		{\n	if(j === 0)\n lab.push(msg.payload.Sheet1[a].Date + \"8AM\");\n				if(j == 1)\n lab.push(msg.payload.Sheet1[a].Date + \"11AM\");\n					if(j == 2)\n lab.push(msg.payload.Sheet1[a].Date + \"1PM\");\n			if(j == 3)\n lab.push(msg.payload.Sheet1[a].Date + \"6PM\");\n		}\n} \nfor(a = 0; a < 20; a++)\n{\n\n	z.push(msg.payload.Sumit[a][\"8AM\"]);\n z.push(msg.payload.Sumit[a][\"11AM\"]);\n z.push(msg.payload.Sumit[a][\"1PM\"]);\n z.push(msg.payload.Sumit[a][\"6PM\"]);\n}	\nvar m={};\nm.labels =
+lab;\nm.series = ['Series Sumit'];\nm.data = [z];\n\nreturn
+{payload:[m]};\n\n/*msg.payload = [];\nreturn msg;*/ \n//To flush the chart or clean the chart","outputs":1,"noerr":0,"x":570,"y":180,"wires":[["293df21d.188bbe"]]},{"id":"1
+d44b4ca.f157ab","type":"ui_button","z":"2bfe4fdb.e35b8","name":"","group":"7f5
+939fa.12e138","order":4,"width":5,"height":1,"passthru":false,"label":"Sumit","toolti p":"","color":"","bgcolor":"","icon":"","payload":"","payloadType":"str","topic":"","x":1 30,"y":380,"wires":[["b33e7617.d0c828"]]},{"id":"b33e7617.d0c828","type":"file in","z":"2bfe4fdb.e35b8","name":"File in","filename":"C:\\Users\\Anshuman\\Desktop\\Summer Course 2020\\New.json","format":"utf8","chunk":false,"sendError":false,"encoding":"none"," x":250,"y":380,"wires":[["18e5256e.267c1b"]]},{"id":"18e5256e.267c1b","type":"js
+on","z":"2bfe4fdb.e35b8","name":"","property":"payload","action":"","pretty":false,"
+x":370,"y":380,"wires":[["a5b89df6.21dc","fcc12c43.aee28"]]},{"id":"6dafb58d.7b
+b67c","type":"ui_chart","z":"2bfe4fdb.e35b8","name":"","group":"f1e719f4.28d56 8","order":2,"width":25,"height":4,"label":"Bar Graph","chartType":"bar","legend":"true","xformat":"HH:mm:ss","interpolate":"linear",
+"nodata":"","dot":false,"ymin":"94","ymax":"104","removeOlder":1,"removeOlderPoi nts":"","removeOlderUnit":"3600","cutout":0,"useOneColor":true,"useUTC":false,"color s":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896",
+"#9467bd","#c5b0d5"],"useOldStyle":false,"outputs":1,"x":1070,"y":320,"wires":[[]]}
+,{"id":"210488a9.7b4158","type":"split","z":"2bfe4fdb.e35b8","name":"","splt":"\\n
+","spltType":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"key
+","x":550,"y":260,"wires":[["b887c5e8.a13558"]]},{"id":"b887c5e8.a13558","type":
+"function","z":"2bfe4fdb.e35b8","name":"","func":"if (msg.key == \"Sheet1\")\n{\n return msg;\n}","outputs":1,"noerr":0,"x":670,"y":260,"wires":[["cf656ead.fd789"]]},{"id":"c
+f656ead.fd789","type":"split","z":"2bfe4fdb.e35b8","name":"","splt":"","spltType":"s
+tr","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"","x":790,"y":260,
+ 
+"wires":[["f7972d00.f3e3d"]]},{"id":"f7972d00.f3e3d","type":"function","z":"2bfe4f db.e35b8","name":"","func":"var m = [\n	{label:msg.payload.Date, payload:msg.payload[\"8AM\"], series:\"08:00 AM\"},\n
+{label:msg.payload.Date, payload:msg.payload[\"11AM\"], series:\"11:00 AM\"},\n	{label:msg.payload.Date, payload:msg.payload[\"1PM\"], series:\"01:00 PM\"},\n	{label:msg.payload.Date, payload:msg.payload[\"6PM\"], series:\"06:00 PM\"}\n	];\nreturn [m];","outputs":1,"noerr":0,"x":910,"y":260,"wires":[["6dafb58d.7bb67c"]]},{"id":"63
+1ad2b8.6dffdc","type":"split","z":"2bfe4fdb.e35b8","name":"","splt":"\\n","spltType
+":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"key","x":550,"
+y":300,"wires":[["34e6530.84531ae"]]},{"id":"34e6530.84531ae","type":"function",
+"z":"2bfe4fdb.e35b8","name":"","func":"if (msg.key == \"Mohit\")\n{\n	return msg;\n}","outputs":1,"noerr":0,"x":670,"y":300,"wires":[["7f5e7a3e.969c94"]]},{"id":
+"7f5e7a3e.969c94","type":"split","z":"2bfe4fdb.e35b8","name":"","splt":"","spltTyp
+e":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"","x":790,"y":
+300,"wires":[["334a429f.817cee"]]},{"id":"334a429f.817cee","type":"function","z":" 2bfe4fdb.e35b8","name":"","func":"var m = [\n	{label:msg.payload.Date, payload:msg.payload[\"8AM\"], series:\"08:00 AM\"},\n
+{label:msg.payload.Date, payload:msg.payload[\"11AM\"], series:\"11:00 AM\"},\n	{label:msg.payload.Date, payload:msg.payload[\"1PM\"], series:\"01:00 PM\"},\n	{label:msg.payload.Date, payload:msg.payload[\"6PM\"], series:\"06:00 PM\"}\n	];\nreturn [m];","outputs":1,"noerr":0,"x":910,"y":300,"wires":[["6dafb58d.7bb67c"]]},{"id":"f3
+47a17e.b4381","type":"split","z":"2bfe4fdb.e35b8","name":"","splt":"\\n","spltType
+":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"key","x":550,"
+y":340,"wires":[["5a8c9d35.a7b134"]]},{"id":"5a8c9d35.a7b134","type":"function",
+"z":"2bfe4fdb.e35b8","name":"","func":"if (msg.key == \"Rahul\")\n{\n	return msg;\n}","outputs":1,"noerr":0,"x":670,"y":340,"wires":[["ab687405.9ad0f8"]]},{"id":
+"ab687405.9ad0f8","type":"split","z":"2bfe4fdb.e35b8","name":"","splt":"","spltTyp
+e":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"","x":790,"y":
+340,"wires":[["767ce70f.ba70d8"]]},{"id":"767ce70f.ba70d8","type":"function","z":" 2bfe4fdb.e35b8","name":"","func":"var m = [\n	{label:msg.payload.Date, payload:msg.payload[\"8AM\"], series:\"08:00 AM\"},\n
+{label:msg.payload.Date, payload:msg.payload[\"11AM\"], series:\"11:00 AM\"},\n	{label:msg.payload.Date, payload:msg.payload[\"1PM\"], series:\"01:00 PM\"},\n	{label:msg.payload.Date, payload:msg.payload[\"6PM\"], series:\"06:00 PM\"}\n	];\nreturn [m];","outputs":1,"noerr":0,"x":910,"y":340,"wires":[["6dafb58d.7bb67c"]]},{"id":"fcc
+12c43.aee28","type":"split","z":"2bfe4fdb.e35b8","name":"","splt":"\\n","spltType":
+"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"key","x":550,"y":
+380,"wires":[["695e07c8.5db5c8"]]},{"id":"695e07c8.5db5c8","type":"function","z": "2bfe4fdb.e35b8","name":"","func":"if (msg.key == \"Sumit\")\n{\n	return msg;\n}","outputs":1,"noerr":0,"x":670,"y":380,"wires":[["6a1e2dff.987b24"]]},{"id":
+"6a1e2dff.987b24","type":"split","z":"2bfe4fdb.e35b8","name":"","splt":"","spltTyp
+e":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"","x":790,"y":
+ 
+380,"wires":[["f572cbec.704e08"]]},{"id":"f572cbec.704e08","type":"function","z":" 2bfe4fdb.e35b8","name":"","func":"var m = [\n	{label:msg.payload.Date, payload:msg.payload[\"8AM\"], series:\"08:00 AM\"},\n
+{label:msg.payload.Date, payload:msg.payload[\"11AM\"], series:\"11:00 AM\"},\n	{label:msg.payload.Date, payload:msg.payload[\"1PM\"], series:\"01:00 PM\"},\n	{label:msg.payload.Date, payload:msg.payload[\"6PM\"], series:\"06:00 PM\"}\n	];\nreturn [m];","outputs":1,"noerr":0,"x":910,"y":380,"wires":[["6dafb58d.7bb67c"]]},{"id":"f1e 719f4.28d568","type":"ui_group","z":"","name":"Temperature","tab":"546035ed.25
+f65c","order":1,"disp":true,"width":25,"collapse":false},{"id":"7f5939fa.12e138","ty
+pe":"ui_group","z":"","name":"Button","tab":"546035ed.25f65c","order":2,"disp":true,
+"width":25,"collapse":false},{"id":"546035ed.25f65c","type":"ui_tab","z":"","name":" Project 2","icon":"dashboard","order":5,"disabled":false,"hidden":false}]
